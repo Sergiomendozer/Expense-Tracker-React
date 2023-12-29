@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { GlobalContext } from "../context/GlobalState";
+import { GlobalContext } from "./context/GlobalState";
 
 // Function to format numbers into currency
 function moneyFormatter(num) {
-  let p = num.toFixed(2).split(".");
+  const p = num.toFixed(2).split(".");
   return (
     "$ " +
     p[0]

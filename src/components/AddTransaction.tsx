@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { GlobalContext } from "../context/GlobalState";
+import { GlobalContext } from "./context/GlobalState";
 
 // Component for adding a new transaction
 export const AddTransaction = () => {
