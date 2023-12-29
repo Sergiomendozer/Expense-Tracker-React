@@ -1,4 +1,185 @@
-.App {
+/* .App {
   font-family: sans-serif;
   text-align: center;
+} */
+/* Importing the Lato font from Google Fonts for use throughout the app */
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+/* Defining a CSS variable for box shadow to ensure consistency */
+:root {
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+/* Ensuring that all elements have the box-sizing border-box for consistent sizing */
+* {
+  box-sizing: border-box;
+}
+
+/* Styling the body with a light grey background and using flex to center content */
+body {
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Full height of the viewport */
+  margin: 0; /* Reset default margin */
+  font-family: "Lato", sans-serif; /* Lato font for the text */
+  font-size: 18px; /* Default font size */
+}
+
+/* Styling the main container with margin and width */
+.container {
+  margin: 30px auto;
+  width: 350px; /* Width of the main container */
+}
+
+/* Additional styling for headers to improve readability and aesthetics */
+h1 {
+  letter-spacing: 1px; /* Adding some space between letters */
+  margin: 0; /* Removing default margin */
+}
+
+/* Styling for smaller headers */
+h3 {
+  border-bottom: 1px solid #bbb; /* Light bottom border for definition */
+  padding-bottom: 10px; /* Padding below the text */
+  margin: 40px 0 10px; /* Margin around the h3 */
+}
+
+/* Uppercase styling for subheaders for visual hierarchy */
+h4 {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Styling the container for income and expense displays */
+.inc-exp-container {
+  background-color: #fff; /* White background */
+  box-shadow: var(--box-shadow); /* Consistent box shadow */
+  padding: 20px; /* Padding inside the container */
+  display: flex; /* Using flex to distribute space */
+  justify-content: space-between; /* Space out the child elements */
+  margin: 20px 0; /* Margin above and below */
+}
+
+/* Flex styling for the child divs inside .inc-exp-container */
+.inc-exp-container > div {
+  flex: 1;
+  text-align: center;
+}
+
+/* Adding a border to the right of the first child div to separate income and expense */
+.inc-exp-container > div:first-of-type {
+  border-right: 1px solid #dedede;
+}
+
+/* Styling for money values to make them stand out */
+.money {
+  font-size: 20px; /* Larger font size for emphasis */
+  letter-spacing: 1px; /* Space between letters */
+  margin: 5px 0; /* Margin above and below */
+}
+
+/* Color coding for positive (income) values */
+.money.plus {
+  color: #2ecc71; /* Green for income */
+}
+
+/* Color coding for negative (expense) values */
+.money.minus {
+  color: #c0392b; /* Red for expenses */
+}
+
+/* Inline-block styling for labels to allow margin adjustments */
+label {
+  display: inline-block;
+  margin: 10px 0; /* Margin above and below */
+}
+
+/* Consistent styling for text and number inputs */
+input[type="text"],
+input[type="number"] {
+  border: 1px solid #dedede; /* Light grey border */
+  border-radius: 2px; /* Slightly rounded corners */
+  display: block; /* Ensure it takes up the full width */
+  font-size: 16px; /* Slightly larger font size for readability */
+  padding: 10px; /* Padding inside the input */
+  width: 100%; /* Full width of the container */
+}
+
+/* Styling for buttons to make them interactive and visually appealing */
+.btn {
+  cursor: pointer; /* Cursor changes to pointer to indicate it's clickable */
+  background-color: #9c88ff; /* Light purple background */
+  box-shadow: var(--box-shadow); /* Consistent shadow effect */
+  color: #fff; /* White text for contrast */
+  border: 0; /* Removing default border */
+  display: block; /* Ensure it takes up the full width */
+  font-size: 16px; /* Font size */
+  margin: 10px 0 30px; /* Margin around the button */
+  padding: 10px; /* Padding inside the button */
+  width: 100%; /* Full width of the container */
+}
+
+/* Removing the focus outline for a cleaner look */
+.btn:focus,
+.delete-btn:focus {
+  outline: 0;
+}
+
+/* Styling for the list of transactions */
+.list {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+  margin-bottom: 40px; /* Bottom margin for spacing */
+}
+
+/* Styling individual list items with a flexible layout and consistent padding and margin */
+.list li {
+  background-color: #fff; /* White background for list items */
+  box-shadow: var(--box-shadow); /* Shadow effect from the variable defined */
+  color: #333; /* Dark grey text color */
+  display: flex; /* Flexbox layout for internal items */
+  justify-content: space-between; /* Space out the child elements */
+  position: relative; /* For absolute positioning of child elements like delete button */
+  padding: 10px; /* Padding inside list items */
+  margin: 10px 0; /* Margin above and below each list item */
+}
+
+.list li.plus {
+  border-right: 5px solid #2ecc71; /* Green right border for positive transactions */
+}
+
+.list li.minus {
+  border-right: 5px solid #c0392b; /* Red right border for negative transactions */
+}
+
+.delete-btn {
+  cursor: pointer; /* Pointer cursor to indicate clickable */
+  background-color: #e74c3c; /* Red background for delete button */
+  border: 0; /* No border for a flat look */
+  color: #fff; /* White text for contrast */
+  font-size: 20px; /* Size of the text in the button */
+  line-height: 20px; /* Line height to match font size */
+  padding: 2px 5px; /* Padding inside the button */
+  position: absolute; /* Absolute positioning relative to parent */
+  top: 50%; /* Position at 50% from the top of parent */
+  left: 0; /* Align to the left of parent */
+  transform: translate(
+    -100%,
+    -50%
+  ); /* Center vertically and move to left outside of parent */
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.3s ease; /* Transition effect for opacity */
+}
+
+.list li:hover .delete-btn {
+  opacity: 1; /* Fully visible when parent list item is hovered */
+}
+
+@media (max-width: 320px) {
+  .container {
+    width: 300px; /* Adjust container width on smaller screens */
+  }
 }
