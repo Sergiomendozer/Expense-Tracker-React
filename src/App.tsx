@@ -1,5 +1,5 @@
-// import React from "react";
-// import { Header } from "./components/Header";
+import React from "react";
+import { Header } from "./components/Header";
 // import { Balance } from "./components/Balance";
 // import { IncomeExpenses } from "./components/IncomeExpenses";
 // import { TransactionList } from "./components/TransactionList";
@@ -10,28 +10,24 @@
 // import './App.css';
 import "./styles.css";
 
+// export default function App() {
+//   return (
+//     <div className="App">
+//       <h1>Hello CodeSandbox</h1>
+//       <h2>Start editing to see some magic happen!</h2>
+//     </div>
+//   );
+// }
+
 export default function App() {
   return (
     <div className="App">
+      <Header />
       <h1>Hello CodeSandbox</h1>
       <h2>Start editing to see some magic happen!</h2>
     </div>
   );
 }
-
-// function App() {
-//   return (
-//     <GlobalProvider>
-//       <Header />
-//       <div className="container">
-//         <Balance />
-//         <IncomeExpenses />
-//         <TransactionList />
-//         <AddTransaction />
-//       </div>
-//     </GlobalProvider>
-//   );
-// }
 
 // oerginalk
 
@@ -48,5 +44,3 @@ export default function App() {
 //     </GlobalProvider>
 //   );
 // }
-
-// export default App;
