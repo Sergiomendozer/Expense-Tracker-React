@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { GlobalContext } from "./context/GlobalState";
+import { GlobalContext } from "../context/GlobalState";
 
 // Money formatter function converts numbers to currency format
 function moneyFormatter(num) {
